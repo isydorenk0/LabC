@@ -6,7 +6,8 @@ namespace LabC
     {
         public Display()
         {
-          panelTypes = new List<string>() { "OLED", "AMOLED", "LCD" };
+            panelTypes = new List<string>() { "OLED", "AMOLED", "LCD" };
+            Pixels = new Resolution();
         }
 
         public double Diagonal
@@ -37,7 +38,7 @@ namespace LabC
                 }
                 else
                 {
-                 Error.Show(value);
+                    Error.Show(value);
                 }
             }
         }
@@ -50,7 +51,7 @@ namespace LabC
     }
 
     internal class Resolution
-    {   
+    {
         public int Horizontal
         {
             get { return horizontal; }

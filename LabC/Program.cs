@@ -14,14 +14,15 @@ namespace LabC
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new Form1());
+            // Application.Run(new Form1());
 
             MobilePhone mobile = new MobilePhone();
+            mobile.Display.Pixels.Horizontal = 596;
             mobile.Display.Type = "OLED";
             mobile.Body.Color = "Blue";
             mobile.Battery.Builtin = true;
-            mobile.Simcard.SimType = "Nano SIM";
-            mobile.Simcard.ESim = false; 
+            mobile.Simcard.SimType = "ddd";
+            mobile.Simcard.ESim = false;
         }
     }
 }

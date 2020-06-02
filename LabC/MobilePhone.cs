@@ -7,6 +7,7 @@
             body = new Body();
             display = new Display();
             battery = new Battery();
+            simcard = new Simcard();
         }
 
         public Body Body

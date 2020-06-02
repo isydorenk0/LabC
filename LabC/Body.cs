@@ -8,7 +8,7 @@ namespace LabC
     {
         public Body()
         {
-           colors = Enum.GetNames(typeof(KnownColor));           
+            colors = Enum.GetNames(typeof(KnownColor));
         }
         public double Width
         {
@@ -44,7 +44,7 @@ namespace LabC
                 }
                 else
                 {
-                    Error.Show(value);                                   
+                    Error.Show(value);
                 }
             }
         }
