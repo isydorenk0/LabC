@@ -1,40 +1,39 @@
-﻿namespace LabC
+﻿using System.Text;
+using static LabC.Screen;
+
+namespace LabC
 {
     class MobilePhone
     {
-        public MobilePhone()
+        public abstract class Mobile
         {
-            body = new Body();
-            display = new Display();
-            battery = new Battery();
-            simcard = new Simcard();
+            public abstract ScreenBase Screen { get; }
+            private void Show(IScreenImage screenImage)
+            {
+                Screen.Show(screenImage);
+            }
+            public abstract BatteryBasic Battery { get; }
+            public abstract DisplayBasic Display    { get; }
+            public string GetDescription()
+            {
+                var descriptionBuilder = new StringBuilder();
+                descriptionBuilder.AppendLine($"Screen Type: {Screen.ToString()}");
+                descriptionBuilder.AppendLine($"Battery Type: {Battery.ToString()}");
+                descriptionBuilder.AppendLine($"Display Type: {Display.ToString()}");
+                return descriptionBuilder.ToString();
+            }
         }
 
-        public Body Body
+        public class SimCorpMobile : Mobile
         {
-            get { return body; }
-            set { body = value; }
+            public override ScreenBase Screen { get { return vOLDEScreen; } }
+            private readonly OLEDScreen vOLDEScreen = new OLEDScreen();
+            public override BatteryBasic Battery { get { return vLiIonBattery; } }
+            private readonly LiIonBattery vLiIonBattery = new LiIonBattery();
+            public override DisplayBasic Display{ get { return vMultiDisplay; } }
+            private readonly MultiTouch vMultiDisplay = new MultiTouch();
+
         }
 
-        public Display Display
-        {
-            get { return display; }
-            set { display = value; }
-        }
-        public Battery Battery
-        {
-            get { return battery; }
-            set { battery = value; }
-        }
-        public Simcard Simcard
-        {
-            get { return simcard; }
-            set { simcard = value; }
-        }
-
-        private Body body;
-        private Display display;
-        private Battery battery;
-        private Simcard simcard;
     }
 }

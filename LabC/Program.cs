@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using static LabC.MobilePhone;
 
 namespace LabC
 {
@@ -11,18 +12,11 @@ namespace LabC
         [STAThread]
         static void Main()
         {
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Form1());
-
-            MobilePhone mobile = new MobilePhone();
-            mobile.Display.Pixels.Horizontal = 596;
-            mobile.Display.Type = "OLED";
-            mobile.Body.Color = "Blue";
-            mobile.Battery.Builtin = true;
-            mobile.Simcard.SimType = "ddd";
-            mobile.Simcard.ESim = false;
+           SimCorpMobile newPhone = new SimCorpMobile();
+            string description = newPhone.GetDescription();
+            
+            Console.WriteLine(description);
+            Console.ReadKey();
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace LabC
 {
-    class Display
+class DisplayBasic
     {
-        public Display()
+        public DisplayBasic()
         {
             panelTypes = new List<string>() { "OLED", "AMOLED", "LCD" };
             Pixels = new Resolution();
@@ -20,11 +21,6 @@ namespace LabC
         {
             get { return pixels; }
             set { pixels = value; }
-        }
-        public bool Touch
-        {
-            get { return touch; }
-            set { touch = value; }
         }
 
         public string Type
@@ -45,7 +41,6 @@ namespace LabC
 
         private double diagonal;
         private Resolution pixels;
-        private bool touch;
         private string type;
         private List<string> panelTypes;
     }
@@ -65,5 +60,45 @@ namespace LabC
 
         private int horizontal;
         private int vertical;
+    }
+
+    class BasicTouch : DisplayBasic
+    {
+        public void SoundOnTouch(bool beepb)
+        {
+            if (beepb)
+            {
+                Console.Beep();
+            }
+        }
+        private void Haptics(string action)
+        {
+            switch (action)
+            {
+                case "Tap":
+                    Console.WriteLine("Tap");
+                    break;
+                case "Press":
+                    Console.WriteLine("Press");
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    class MultiTouch : BasicTouch
+    {
+        public override string ToString()
+        {
+            return "Multi touch";
+        }        
+    }
+    class SingleTouch : BasicTouch
+    {
+        public override string ToString()
+        {
+            return "Single touch";
+        }     
     }
 }
