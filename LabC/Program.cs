@@ -12,10 +12,8 @@ namespace LabC
         [STAThread]
         static void Main()
         {
-           SimCorpMobile newPhone = new SimCorpMobile();
-            string description = newPhone.GetDescription();
-            
-            Console.WriteLine(description);
+            ScdMobilePhone newPhone = new ScdMobilePhone();            
+            Console.WriteLine(newPhone);
             Console.ReadKey();
         }
     }

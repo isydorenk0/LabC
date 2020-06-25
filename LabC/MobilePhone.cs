@@ -3,37 +3,28 @@ using static LabC.Screen;
 
 namespace LabC
 {
-    class MobilePhone
+    public abstract class MobilePhone
     {
-        public abstract class Mobile
+
+        //public abstract ScreenBase Screen { get; }
+        //private void Show(IScreenImage screenImage)
+        //{
+        //    Screen.Show(screenImage);
+        //}
+
+        //public abstract DisplayBasic Display    { get; }
+        public abstract ESimCard ESimCard { get; }
+        public abstract BatteryBasic BatteryBasic { get; }
+        public abstract DisplayTouch TouchDisplay { get; }
+        public abstract BodyBasic Body { get; }
+        public override string ToString()
         {
-            public abstract ScreenBase Screen { get; }
-            private void Show(IScreenImage screenImage)
-            {
-                Screen.Show(screenImage);
-            }
-            public abstract BatteryBasic Battery { get; }
-            public abstract DisplayBasic Display    { get; }
-            public string GetDescription()
-            {
-                var descriptionBuilder = new StringBuilder();
-                descriptionBuilder.AppendLine($"Screen Type: {Screen.ToString()}");
-                descriptionBuilder.AppendLine($"Battery Type: {Battery.ToString()}");
-                descriptionBuilder.AppendLine($"Display Type: {Display.ToString()}");
-                return descriptionBuilder.ToString();
-            }
+            var descriptionBuilder = new StringBuilder();           
+            descriptionBuilder.AppendLine($"SimCard Info:\n{ESimCard.ToString()}");
+            descriptionBuilder.AppendLine($"Battery Info:\n{BatteryBasic.ToString()}");
+            descriptionBuilder.AppendLine($"Display Info:\n{TouchDisplay.ToString()}");
+            descriptionBuilder.AppendLine($"Body Info:\n{Body.ToString()}");
+            return descriptionBuilder.ToString();
         }
-
-        public class SimCorpMobile : Mobile
-        {
-            public override ScreenBase Screen { get { return vOLDEScreen; } }
-            private readonly OLEDScreen vOLDEScreen = new OLEDScreen();
-            public override BatteryBasic Battery { get { return vLiIonBattery; } }
-            private readonly LiIonBattery vLiIonBattery = new LiIonBattery();
-            public override DisplayBasic Display{ get { return vMultiDisplay; } }
-            private readonly MultiTouch vMultiDisplay = new MultiTouch();
-
-        }
-
     }
 }

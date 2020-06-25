@@ -1,70 +1,48 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace LabC
 {
-    class SimCardBasic
-    {
-        public bool Locked
-        {
-            get { return locked; }
-            set { locked = value; }
-        }
-        private bool locked;
-    }
-
-    class ESimCard : SimCardBasic
-    {
-        public ESimCard()
-        {
-            carriers = new List<string>();
-        }
-        public void AddCarrier(string name)
-        {
-            carriers.Add(name);
-        }
-        public string ReturnCarrier(int ix)
-        {
-            if (ix <= carriers.Count)
-            {
-                return carriers[ix];
-            }
-            else
-            {
-                return "Our of range";
-            }                      
-        }
-        private List<string> carriers;
-    }
     class SimCard : SimCardBasic
     {
-        public SimCard()
+        public SimCard(string carrier, SimcardTypes simtype, string phonenumber)
         {
-            simcardTypes = new List<string>() { "Standard SIM", "Micro SIM", "Nano SIM" };
-        }
-        public string SimType
-        {
-            get { return simType; }
-            set
-            {
-                if (simcardTypes.Contains(value))
-                {
-                    simType = value;
-                }
-                else
-                {
-                    Error.Show(value);
-                }
-            }
+            Carrier = carrier;
+            SimCardType = simtype.ToString();
+            PhoneNumber = phonenumber;
         }
         public string Carrier
         {
-            get { return carrier; }
-            set { carrier = value; }
+            get { return vCarrier; }
+            private set { vCarrier = value; }
+        }
+        public string PhoneNumber
+        {
+            get { return vPhoneNumber; }
+            private set { vPhoneNumber = value; }
+        }
+        public string SimCardType
+        {
+            get { return vSimCardType; }
+            private set { vSimCardType = value; }
+        }
+        public override string ToString()
+        {
+            string returnmessage = $"SimCard type {SimCardType}";
+            returnmessage += ReturnLockStatus();
+            returnmessage += $"Carrier: {Carrier} Phone Number: {PhoneNumber}";        
+            return returnmessage;
         }
 
-        private string simType;
-        private List<string> simcardTypes;
-        private string carrier;
+        private string vSimCardType;
+        private string vCarrier;
+        private string vPhoneNumber;
+        public enum SimcardTypes
+        {
+            ESimCard, StandardSIM, MicroSIM, NanoSIM
+        }
     }
-
 }
