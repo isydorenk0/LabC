@@ -70,8 +70,7 @@ namespace LabC
         public override string ToString()
         {
             string returnmessage = $"{FormatDimensions(Width, Height, Depth)}\n";
-            returnmessage += $"Weight:\t\t\t
-{ Weight.ToString() }\n";
+            returnmessage += $"Weight:\t\t\t{ Weight.ToString() }\n";
             returnmessage += $"Type of body:\t\t{FormatBodyTypeMessage(BodyType)}\n";
             return returnmessage;
         }
