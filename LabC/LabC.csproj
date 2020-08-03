@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,28 +64,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DisplayTouchSettings.cs" />
-    <Compile Include="BatteryBasic.cs" />
-    <Compile Include="BodyBasic.cs" />
-    <Compile Include="DisplayResolution.cs" />
-    <Compile Include="DisplayTouch.cs" />
-    <Compile Include="ESimCardPhoneNumbers.cs" />
-    <Compile Include="ScdMobilePhone.cs" />
-    <Compile Include="SimCard.cs" />
-    <Compile Include="DisplayBasic.cs" />
-    <Compile Include="Error.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="ShowPlaybackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ShowPlaybackForm.Designer.cs">
+      <DependentUpon>ShowPlaybackForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MobilePhone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Screen.cs" />
-    <Compile Include="ESimCard.cs" />
-    <Compile Include="SimCardBasic.cs" />
+    <Compile Include="ScdMobilePhone.cs" />
+    <EmbeddedResource Include="ShowPlaybackForm.resx">
+      <DependentUpon>ShowPlaybackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -80,6 +86,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Common.GetPlayableType+HeadSetTypes.datasource" />
+    <None Include="Properties\DataSources\Common.GetPlayableType.datasource" />
+    <None Include="Properties\DataSources\Common.GetPlayback.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +101,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{ad60cdc6-c1f9-4f12-bdd2-b4dba0ec1042}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobilePhonePorperties\MobilePhoneProperties.csproj">
+      <Project>{97a7a8d0-3d82-4fa4-b8bb-4d39ff83d874}</Project>
+      <Name>MobilePhoneProperties</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Playback\Playback.csproj">
+      <Project>{2823d119-a793-4711-99b8-7fe871a511bc}</Project>
+      <Name>Playback</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

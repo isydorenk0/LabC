@@ -1,18 +1,16 @@
-﻿using System.Text;
-using static LabC.Screen;
+﻿using LabC;
+using System.Text;
 
 namespace LabC
 {
     public abstract class MobilePhone
     {
+        public IPlayback PlaybackComponent { get; set;  }
+        public void Play()
+        {
+            PlaybackComponent.Play();
+        }
 
-        //public abstract ScreenBase Screen { get; }
-        //private void Show(IScreenImage screenImage)
-        //{
-        //    Screen.Show(screenImage);
-        //}
-
-        //public abstract DisplayBasic Display    { get; }
         public abstract ESimCard ESimCard { get; }
         public abstract BatteryBasic BatteryBasic { get; }
         public abstract DisplayTouch TouchDisplay { get; }
