@@ -5,6 +5,12 @@ namespace LabC
 {
     public abstract class MobilePhone
     {
+        public IPlayback PlaybackComponent { get; set;  }
+        public void Play()
+        {
+            PlaybackComponent.Play();
+        }
+
         public abstract ESimCard ESimCard { get; }
         public abstract BatteryBasic BatteryBasic { get; }
         public abstract DisplayTouch TouchDisplay { get; }

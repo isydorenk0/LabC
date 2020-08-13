@@ -8,6 +8,26 @@ namespace LabC.Tests
     public class IOuputTest
     {
         [TestMethod()]
+        public void OutputWrite_Null()
+        {
+            TestConsoleOutput output = new TestConsoleOutput();
+            string expectedOutput = null;
+
+            output.WriteLine(expectedOutput);
+
+            Assert.AreEqual(expectedOutput, output.resultOutput);
+        }
+        [TestMethod()]
+        public void OutputWrite_iPphone()
+        {
+            TestConsoleOutput output = new TestConsoleOutput();
+            string expectedOutput = "iPhone";
+
+            output.WriteLine(expectedOutput);
+
+            Assert.AreEqual(expectedOutput, output.resultOutput);
+        }
+        [TestMethod()]
         public void OutputDisplay_iPhone()
         {
             TestConsoleOutput output = new TestConsoleOutput();

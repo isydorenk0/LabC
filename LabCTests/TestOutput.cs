@@ -13,5 +13,9 @@ namespace LabCTests
                 textbox.AppendText(text);
             }            
         }
+        public void WriteLine(string test)
+        {
+            resultOutput = test;
+        }
     }
 }
