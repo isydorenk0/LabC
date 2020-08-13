@@ -1,17 +1,16 @@
-﻿using LabC;
+﻿using System;
 using System.Windows.Forms;
 
-namespace LabCTests
+namespace LabC
 {
-    class TestConsoleOutput : IOutput
+    public class TextBoxOutput : IOutput
     {
-        public string resultOutput;
         public void DisplayLine(TextBox textbox, string text)
         {
             if (!string.IsNullOrWhiteSpace(text))
             {
                 textbox.AppendText(text);
-            }            
+            }
         }
     }
 }

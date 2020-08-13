@@ -13,10 +13,5 @@ namespace LabC
         {
             Output.DisplayLine(data, $"{nameof(PhoneSpeaker)} sound");
         }
-        public void Play()
-        {
-            Output.WriteLine($"{nameof(PhoneSpeaker)} sound");
-        }
-
     }
 }

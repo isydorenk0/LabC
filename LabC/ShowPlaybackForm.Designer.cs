@@ -100,7 +100,7 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Output";
             // 
-            // Form1
+            // ShowPlaybackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,7 +111,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.Apply);
-            this.Name = "Form1";
+            this.MaximizeBox = false;
+            this.Name = "ShowPlaybackForm";
             this.Text = "Playback";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headSetTypesBindingSource)).EndInit();

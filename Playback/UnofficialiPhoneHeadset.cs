@@ -13,9 +13,5 @@ namespace LabC
         {
             Output.DisplayLine(data, $"{nameof(UnofficialiPhoneHeadset)} sound");
         }
-        public void Play()
-        {
-            Output.WriteLine($"{nameof(UnofficialiPhoneHeadset)} sound");
-        }
     }
 }

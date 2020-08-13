@@ -4,7 +4,6 @@ namespace LabC
 {
     public interface IPlayback
     {
-        void Play();
         void Display(TextBox data);
     }
 }

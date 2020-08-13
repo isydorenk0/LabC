@@ -13,12 +13,7 @@ namespace LabC
         public void Display(TextBox data)
         {
             Output.DisplayLine(data, $"{nameof(iPhoneHeadset)} sound");
-        }
-
-        public void Play()
-        {
-            Output.WriteLine($"{nameof(iPhoneHeadset)} sound");
-        }
+        }       
     }
 }
 

@@ -12,10 +12,6 @@ namespace LabC
         public void Display(TextBox data)
         {
             Output.DisplayLine(data, $"{nameof(SamsungHeadset)} sound");
-        }
-        public void Play()
-        {
-            Output.WriteLine($"{nameof(SamsungHeadset)} sound");
-        }    
+        } 
     }
 }

@@ -9,7 +9,7 @@ namespace Common
         public static IPlayback GetPlaybackType(HeadSetTypes headSetType)
         {
             IPlayback playback = null;
-            IOutput output = new ConsoleOutput();
+            IOutput output = new TextBoxOutput();
 
             switch (headSetType)
             {
